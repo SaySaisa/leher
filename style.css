@@ -1,0 +1,124 @@
+/* ===== 1. DESIGN TOKENS (change colours here, they update everywhere) ===== */
+:root{
+  --lavender:#cfc2e8; --lilac:#e9e0f5; --ivory:#fbf6ee; --cream:#f5ecdc;
+  --burgundy:#6e1423; --wine:#8b1e2f; --plum:#5a3a62; --pink:#dba7b5;
+  --serif:'Cormorant Garamond',Georgia,serif; --script:'Great Vibes',cursive; --sans:'Poppins',system-ui,sans-serif;
+  --shadow:0 10px 28px rgba(90,58,98,.18);
+}
+/* ===== 2. RESET & BASE ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--sans);font-weight:300;line-height:1.7;color:var(--plum);
+  background:radial-gradient(circle at 10% 0%,var(--lilac),transparent 45%),var(--ivory);overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);color:var(--burgundy);font-weight:600;line-height:1.1}
+.section{padding:70px 20px;max-width:1100px;margin:auto;position:relative}
+.title{font-size:2.3rem;text-align:center;margin-bottom:36px}
+.title::after{content:"\2665";display:block;font-size:.9rem;color:var(--wine);margin-top:6px}
+/* white background of the PNG-style photos disappears with multiply */
+.deco{mix-blend-mode:multiply;pointer-events:none;position:absolute}
+
+/* ===== 3. NAVIGATION (sticky, frosted) ===== */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 20px;background:rgba(251,246,238,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--pink)}
+.logo{font-family:var(--serif);font-size:1.6rem;letter-spacing:.3em;color:var(--burgundy);text-decoration:none;font-weight:600}
+.menu-btn{font-size:1.6rem;background:none;border:0;color:var(--wine);cursor:pointer}
+#menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ivory);padding:12px 20px;border-bottom:1px solid var(--pink)}
+#menu.open{display:flex}
+#menu a{padding:8px 0;color:var(--plum);text-decoration:none;font-size:.9rem;letter-spacing:.08em}
+#menu a:hover{color:var(--wine)}
+
+/* ===== 4. HERO ===== */
+.hero{position:relative;min-height:90vh;display:grid;gap:30px;align-items:center;padding:50px 20px 70px;max-width:1100px;margin:auto}
+.hero .flowers{right:-40px;top:0;height:100%;width:auto;opacity:.9;z-index:0}
+.hero .ribbon-top{left:-30px;top:-10px;width:150px;transform:rotate(-20deg)}
+.hero-text,.hero-photo{position:relative;z-index:2}
+.kicker{letter-spacing:.3em;text-transform:uppercase;font-size:.75rem}
+.hero h1{font-size:clamp(4rem,18vw,8rem);letter-spacing:.12em}
+.tagline{font-family:var(--script);font-size:2rem;color:var(--wine);margin:6px 0 12px}
+.btn{display:inline-block;margin-top:18px;padding:10px 26px;border-radius:30px;background:var(--burgundy);color:var(--ivory);text-decoration:none;font-size:.85rem;transition:.3s}
+.btn:hover{background:var(--wine);transform:translateY(-3px)}
+.frame{background:#fff;padding:10px 10px 36px;border-radius:22px;box-shadow:var(--shadow);border:1px solid var(--pink);transform:rotate(3deg);max-width:320px;justify-self:center;position:relative}
+.frame img{border-radius:14px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.tag{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--wine)}
+.heart{position:absolute;color:var(--wine);font-size:1.4rem;opacity:.7}
+.h1{left:48%;bottom:30px}
+
+/* ===== 5. INTRO CARD ===== */
+.card{background:rgba(255,255,255,.7);border:1px solid var(--pink);border-radius:26px 8px 26px 8px;padding:26px;box-shadow:var(--shadow);position:relative;transition:.35s}
+.card:hover{transform:translateY(-6px) rotate(-.5deg)}
+.intro-card{background:linear-gradient(160deg,var(--lilac),#fff);max-width:620px;margin:auto}
+.intro h2{font-size:2rem;margin-bottom:10px}
+.info{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--pink)}
+.info dt{color:var(--wine);font-weight:400}
+.intro .roses{right:-10px;bottom:-30px;width:130px;opacity:.95}
+/* CSS-only bow: two triangles + a knot */
+.bow{display:inline-block;position:relative;width:46px;height:24px}
+.bow::before,.bow::after{content:"";position:absolute;top:0;width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.bow::before{left:0;border-left:20px solid var(--wine);border-right:0;transform:none;border-left-color:var(--wine)}
+.bow::after{right:0;border-right:20px solid var(--wine)}
+.intro-card .bow{position:absolute;top:-12px;right:22px}
+.final .bow{margin-top:10px}
+
+/* ===== 6. THINGS WE LOVE (asymmetric offsets) ===== */
+.love-grid{display:grid;gap:20px}
+.ico{font-size:1.6rem}
+.card h3{font-size:1.4rem;margin:6px 0}
+.c2{background:var(--lavender)}.c4{background:var(--cream)}.c5{background:var(--lilac)}
+
+/* ===== 7. PHOTO DIARY ===== */
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;grid-auto-rows:150px}
+.g{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--pink);cursor:zoom-in;box-shadow:var(--shadow);
+  background:linear-gradient(135deg,var(--lavender),var(--pink))}
+.g::before{content:"\2665";position:absolute;inset:0;display:grid;place-items:center;font-size:2rem;color:rgba(255,255,255,.7)}
+.g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g:hover img{transform:scale(1.07)}
+.g figcaption{position:absolute;left:10px;bottom:8px;padding:2px 12px;border-radius:20px;background:rgba(251,246,238,.92);font-family:var(--serif);font-style:italic;color:var(--burgundy);font-size:.95rem;z-index:2}
+.g1{grid-row:span 2}.g3{grid-column:span 2;grid-row:span 2}.g5{grid-column:span 2}
+
+/* ===== 8. MUSIC PLAYER ===== */
+.player{max-width:340px;margin:auto;background:linear-gradient(var(--wine),var(--burgundy));color:var(--cream);border-radius:34px;padding:18px;box-shadow:var(--shadow);text-align:center}
+.art{aspect-ratio:1;border-radius:22px;background:var(--cream);overflow:hidden;position:relative;display:grid;place-items:center;font-size:3rem;color:var(--pink)}
+.art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.player h3{color:var(--cream);font-size:1.5rem;margin-top:14px}
+.bar{height:5px;border-radius:5px;background:rgba(245,236,220,.3);margin-top:14px;cursor:pointer}
+#fill{height:100%;width:0;border-radius:5px;background:var(--cream)}
+.times{display:flex;justify-content:space-between;font-size:.75rem;margin-top:4px}
+.ctrl{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:8px}
+.ctrl button{background:none;border:0;color:var(--cream);font-size:1.1rem;cursor:pointer;padding:10px}
+.ctrl .big{width:58px;height:58px;border-radius:50%;background:var(--cream);color:var(--burgundy);font-size:1.3rem}
+.hint{font-size:.75rem;margin-top:6px;opacity:.8}
+
+/* ===== 9. LITTLE THINGS ===== */
+.notes{display:grid;gap:18px}
+.note{font-family:var(--serif);font-size:1.4rem;font-style:italic;padding:24px 22px;border:1px solid var(--wine);border-radius:18px;position:relative;background:var(--ivory)}
+.note::before{content:"\2665";position:absolute;top:-12px;left:20px;background:var(--ivory);padding:0 6px;color:var(--wine);font-size:1rem}
+.n1{transform:rotate(-1.5deg);background:var(--lilac)}.n2{transform:rotate(1deg)}.n3{transform:rotate(1.5deg);background:var(--lavender)}.n4{transform:rotate(-1deg)}
+
+/* ===== 10. FINAL ===== */
+.final{text-align:center;padding-bottom:90px}
+.script{font-family:var(--script);font-size:2.2rem;color:var(--wine);line-height:1.3}
+.big-logo{display:block;margin-top:20px;font-size:2.4rem}
+.final .bow-final{right:-60px;top:-20px;width:200px;opacity:.8}
+footer{text-align:center;padding:18px;background:var(--burgundy);color:var(--cream);font-size:.78rem}
+
+/* ===== 11. LIGHTBOX & REVEAL ANIMATION ===== */
+.lightbox{position:fixed;inset:0;background:rgba(60,20,40,.85);z-index:99;display:grid;place-items:center;padding:20px}
+.lightbox[hidden]{display:none}
+.lightbox img{max-height:88vh;border-radius:18px;border:6px solid #fff}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.reveal.show{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto}.reveal{opacity:1;transform:none}}
+
+/* ===== 12. LARGER SCREENS (mobile-first: we only add rules as space grows) ===== */
+@media (min-width:760px){
+  .menu-btn{display:none}
+  #menu{display:flex!important;position:static;flex-direction:row;gap:24px;border:0;padding:0;background:none}
+  .hero{grid-template-columns:1.2fr 1fr}
+  .love-grid{grid-template-columns:repeat(6,1fr)}
+  .c1{grid-column:1/4}.c2{grid-column:4/7;margin-top:30px}.c3{grid-column:1/3}.c4{grid-column:3/5;margin-top:24px}.c5{grid-column:5/7}
+  .gallery{grid-template-columns:repeat(4,1fr);grid-auto-rows:170px}
+  .g1{grid-column:1/2}.g2{grid-column:2/3}.g3{grid-column:3/5}.g4{grid-column:1/2}.g5{grid-column:2/4}
+  .notes{grid-template-columns:1fr 1fr}.n2{margin-top:30px}.n4{margin-top:-10px}
+  .intro .roses{width:200px;right:5%}
+}
